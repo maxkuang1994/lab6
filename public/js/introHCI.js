@@ -50,7 +50,7 @@ function detail(result) {
  */
 function randomizeColors(e) {
 	console.log("User clicked on color button");
-	$.get("/palette", color);
+	$.get("/palette", changeColor);
 }
 
 function changeColor(result){
