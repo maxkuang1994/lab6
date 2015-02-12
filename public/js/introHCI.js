@@ -35,7 +35,7 @@ function addProjectDetails(e) {
 
 function detail(result) {
 	console.log(result);
-	var projectHTML = '<a herf = "#" class =#thumbnail">' + 
+	var projectHTML = '<a href = "#" class =#thumbnail">' + 
 				'<img src="' + result['image'] + '" class ="img">' +
 				'<p>' + result['title'] + '</p>' +
 				'<p><small>' + result['data'] + '</small></p></a>' +
@@ -49,16 +49,15 @@ function detail(result) {
  * and apply it
  */
 function randomizeColors(e) {
+	$.get("/palette", colorChange);
 	console.log("User clicked on color button");
-	$.get("/palette", changeColor);
 }
 
-function changeColor(result){
-	console.log(result);
-	var colors = result['colors'];
+function colorChange(result){
+	var colors = result.colors.hex;
 	$('body').css('background-color', colors[0]);
 	$('.thumbnail').css('background-color', colors[1]);
-	$('h1, h2, h3, h4, h5').css('color', colors[2]);
+	$('h1, h2, h3, h4, h5, h5').css('color', colors[2]);
 	$('p').css('color', colors[3]);
 	$('.project img').css('opacity', .75);
 }
